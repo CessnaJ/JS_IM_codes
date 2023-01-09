@@ -1,3 +1,6 @@
+import MeetupList from "../components/meetups/MeetupList";
+
+
 const DUMMY_DATA = [
     {
       id: 'm1',
@@ -23,18 +26,7 @@ const DUMMY_DATA = [
 function AllMeetupsPage() {
     return (<section>
         <h1>All meetups</h1>
-        {[<li>Item1</li>, <li>Item2</li>]}
-        
-        <ul>
-        {DUMMY_DATA.map((meetup) => {
-            return <li key={meetup.id}>{meetup.title}</li>
-        })}
-        </ul>
-        {/* 리스트 넣을거면 무조건 ul로 감싸야해~
-        그리고, Arrow func의 param은 arr의 각 element임.
-        리스트 병렬로 뽑을거면 고유한 key를 지정해줘야함.
-        prop으로. 그래서 저렇게 key={meetup.id}나옴. */}
-
+        <MeetupList meetups={DUMMY_DATA} />
     </section>)
 
 }
