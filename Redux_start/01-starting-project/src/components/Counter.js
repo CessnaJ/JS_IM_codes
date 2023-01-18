@@ -1,22 +1,49 @@
-import { useSelector } from "react-redux";
-// react-redux팀이 만든 useSelector 훅을 import
-// useStore도 있지만 (직접 접근하는훅), 이게 더 쉬움.
-// useSelector는 store가 관리하는 state부분을 자동선택해줌.
+import { useSelector, useDispatch } from "react-redux";
+import { counterActions } from "../store";
+
 
 import classes from "./Counter.module.css";
 
 const Counter = () => {
-  const counter = useSelector((state) => state.counter);
-  // state에서 추출하고싶어하는 데이터를 useSelector안에 넣어줌.
-  // useSelector는 콜백함수를 받음(state를 받아서 state.counter를 return해주는 함수.)
-  // 이건 자동 구독을 해줌. state의 해당 property가 바뀌면, 컴포넌트함수 자체가 재실행됨.
+  const dispatch = useDispatch();
+  
+  const incrementHandler = () => {
+    dispatch(counterActions.increment(10));
+  };
+  // 객체가 이렇게 전달될것임.
+  // {type: uniqueidentifier, payload:10} 그래서 store에서 변수명을 payload로 고정시켜써야함.
 
-  const toggleCounterHandler = () => {};
+  const increaseHandler = () => {
+    dispatch({type: 'increase', amount: 5})
+  };
+  
+
+  const decrementHandler = () => {
+    dispatch(counterActions.decrement());
+  };
+
+  const counter = useSelector((state) => state.counter);
+  const show = useSelector(state => state.showCounter);
+  
+  
+  const toggleCounterHandler = () => {
+    dispatch(counterActions.toggleCounter())
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>-- COUNTER VALUE --</div>
+      {show && <div className={classes.value}>{counter}</div>}
+  
+      
+
+      <div>
+        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={incrementHandler}>Increse by 5</button>
+        <button onClick={decrementHandler}>Decrement</button>
+        
+      </div>
+
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
