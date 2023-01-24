@@ -1,0 +1,41 @@
+// .navContainer {
+//   .active {
+//     display: block;
+//   }
+//   .closed {
+//     display: none;
+//   }
+// }
+
+.active {
+  width: 10%;
+  background-color: #f9e000;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 0px 20px 20px 0px;
+  transition: all ease 1s 0s;
+}
+
+.non_active {
+  width: 20%;
+  background-color: #f9e000;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 0px 20px 20px 0px;
+  transition: all ease 1s 0s;
+}
+
+@keyframes slidein {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
