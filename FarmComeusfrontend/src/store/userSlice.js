@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
+// createAsyncThunk
+// import axios from "axios";
 
 // const myServerURL = 'myserverURL'
 // const asyncCodePost = createAsyncThunk(

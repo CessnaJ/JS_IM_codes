@@ -2,7 +2,7 @@ import "./App.css";
 import KakaoLogin from "./components/login/kakaoLogin";
 import Postcode from "./components/postcode/postcodeInput";
 import Button from "./components/realcomponents/common/Button";
-import store from "./store";
+// import store from "./store";
 
 function App() {
   return (
